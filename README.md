@@ -85,6 +85,10 @@ Caching and QuerySets
 
 **Complex lookups with Q objects**
 
+**Copying model instances**
+more complicated if you use inheritance
+
+
 
 
 ##Aggregation
