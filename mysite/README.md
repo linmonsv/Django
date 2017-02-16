@@ -20,3 +20,5 @@ Run python manage.py migrate to apply those changes to the database.
 python manage.py createsuperuser
 
 
+How to write reusable apps
+--- Packaging your app
