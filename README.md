@@ -146,6 +146,16 @@ Author.objects.filter(name__contains='Terry')
 
 
 ##Managers
+
+Manager names
+
+Custom managers
+Adding extra manager methods
+Modifying a manager’s initial QuerySet
+
+**Default managers**
+
+
 ##Performing raw SQL queries
 ##Database transactions
 ##Multiple databases
