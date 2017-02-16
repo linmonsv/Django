@@ -98,10 +98,27 @@ plus '_set'
 Falling back to raw SQL
 
 ##Aggregation
-Cheat sheet
+Generating aggregates over a QuerySet
 1. Book.objects.all().aggregate(Avg('price'))
 2. Book.objects.all().aggregate(Max('price'))
 
+Generating aggregates for each item in a QuerySet
+
+Combining multiple aggregations
+Book.objects.annotate(Count('authors'), Count('store'))
+
+Joins and aggregates
+Store.objects.annotate(min_price=Min('books__price'), max_price=Max('books__price'))
+
+Following relationships backwards
+
+Aggregations and other QuerySet clauses
+
+
+**values()**
+An annotation is then provided for each unique group;
+
+Order of annotate() and values() clauses
 
 ##Search
 ##Managers
