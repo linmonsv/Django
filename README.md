@@ -131,6 +131,20 @@ Book.objects.annotate(num_authors=Count('authors')).aggregate(Avg('num_authors')
 
 
 ##Search
+
+**Standard textual queries**
+Author.objects.filter(name__contains='Terry')
+
+**A database’s more advanced comparison functions**
+1. If you’re using PostgreSQL, Django provides a selection of database specific tools
+2. Other databases have different selections of tools
+
+**Document-based search**
+1. some of the most prominent are Elastic and Solr
+2. PostgreSQL has its own full text search implementation built-in.
+
+
+
 ##Managers
 ##Performing raw SQL queries
 ##Database transactions
