@@ -118,7 +118,17 @@ Aggregations and other QuerySet clauses
 **values()**
 An annotation is then provided for each unique group;
 
-Order of annotate() and values() clauses
+**Order** of annotate() and values() clauses
+That's different
+
+Interaction with default ordering or order_by()
+class Meta:
+        ordering = ["name"]
+
+Aggregating annotations
+For example, if you wanted to calculate the average number of authors per book you first annotate the set of books with the author count, then aggregate that author count, referencing the annotation field:
+Book.objects.annotate(num_authors=Count('authors')).aggregate(Avg('num_authors'))
+
 
 ##Search
 ##Managers
