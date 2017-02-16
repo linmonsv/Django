@@ -57,6 +57,36 @@ Field name “hiding” is not permitted
 Explicitly importing each model
 
 ##Making queries
+
+###Creating objects
+1. Django doesn’t hit the database until you explicitly call save().
+2. To create and save an object in a single step, use the create() method
+
+To add multiple records to a ManyToManyField in one go, include multiple arguments in the call to add(),
+
+**Retrieving specific objects with filters**
+**Chaining filters**
+
+Lookups that span relationships
+
+**Spanning multi-valued relationships**
+
+1. Blog.objects.filter(entry__headline__contains='Lennon', entry__pub_date__year=2008)
+
+2. Blog.objects.filter(entry__headline__contains='Lennon').filter(entry__pub_date__year=2008)
+
+Filters can reference fields on the model
+
+The pk lookup shortcut
+
+Caching and QuerySets
+
+**When QuerySets are not cached**
+
+**Complex lookups with Q objects**
+
+
+
 ##Aggregation
 ##Search
 ##Managers
