@@ -98,6 +98,11 @@ plus '_set'
 Falling back to raw SQL
 
 ##Aggregation
+Cheat sheet
+1. Book.objects.all().aggregate(Avg('price'))
+2. Book.objects.all().aggregate(Max('price'))
+
+
 ##Search
 ##Managers
 ##Performing raw SQL queries
