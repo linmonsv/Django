@@ -30,6 +30,31 @@ ref SQL
 **Custom field types**
 Meta options
  **is “anything that’s not a field”**
+ 
+ **Model methods**
+ This is a valuable technique for keeping business logic in one place – the model
+**Overriding predefined model methods**
+It’s important to remember to call the superclass method
+**Executing custom SQL**
+
+Model inheritance
+1. Abstract base classes 
+put abstract=True in the Meta class.
+Meta inheritance
+
+part of the value should contain '%(app_label)s' and '%(class)s'.
+
+
+2. Multi-table inheritance 
+3. Proxy models
+
+Multiple inheritance
+use an explicit AutoField in the base models
+use a common ancestor to hold the AutoField
+
+Field name “hiding” is not permitted
+
+Explicitly importing each model
 
 ##Making queries
 ##Aggregation
