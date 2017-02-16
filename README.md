@@ -88,8 +88,14 @@ Caching and QuerySets
 **Copying model instances**
 more complicated if you use inheritance
 
+Updating multiple objects at once
 
+One-to-many relationships
 
+Many-to-many relationships
+plus '_set'
+
+Falling back to raw SQL
 
 ##Aggregation
 ##Search
