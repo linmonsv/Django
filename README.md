@@ -154,7 +154,10 @@ Adding extra manager methods
 Modifying a manager’s initial QuerySet
 
 **Default managers**
-
+**Base managers**
+Using managers for related object access
+_Don’t filter away any results in this type of manager subclass_
+_This manager is used to access objects that are related to from some other model_
 
 ##Performing raw SQL queries
 ##Database transactions
