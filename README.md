@@ -159,6 +159,20 @@ Using managers for related object access
 _Don’t filter away any results in this type of manager subclass_
 _This manager is used to access objects that are related to from some other model_
 
+Calling custom QuerySet methods from the manager
+
+**Creating a manager with QuerySet methods**
+Not every QuerySet method makes sense at the Manager level
+
+**from_queryset()**
+you might want both a custom Manager and a custom QuerySet
+
+###Custom managers and model inheritance
+
+**Implementation concerns**
+Whatever features you add to your custom Manager, it must be possible to make a shallow copy of a Manager instance
+
+
 ##Performing raw SQL queries
 ##Database transactions
 ##Multiple databases
