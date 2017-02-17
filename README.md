@@ -189,6 +189,21 @@ You can also execute queries containing fields that aren’t defined on the mode
 params is a list or dictionary of parameters
 
 ###Executing custom SQL directly
+perform queries that don’t map cleanly to models
+django.db.connection
+**django.db.connections**
+If you are using more than one database, you can use django.db.connections to obtain the connection (and cursor) for a specific database
+
+1. fetchall()
+((54360982, None), (54360880, None))
+2. def dictfetchall(cursor)
+[{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
+3. def namedtuplefetchall(cursor)
+[Result(id=54360982, parent_id=None), Result(id=54360880, parent_id=None)]
+
+**Connections and cursors**
+with connection.cursor() as c:
+    c.execute(...)
 
 ##Database transactions
 ##Multiple databases
