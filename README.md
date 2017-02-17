@@ -174,6 +174,22 @@ Whatever features you add to your custom Manager, it must be possible to make a 
 
 
 ##Performing raw SQL queries
+
+###Performing raw queries
+The raw() manager method can be used to perform raw SQL queries that return model instances
+**Mapping query fields to model fields**
+raw() automatically maps fields in the query to fields on the model
+Alternatively, you can map fields in the query to model fields using the translations argument to raw().
+**Index lookups**
+raw() supports indexing
+**Deferring model fields**
+**Adding annotations**
+You can also execute queries containing fields that aren’t defined on the model
+**Passing parameters into raw()**
+params is a list or dictionary of parameters
+
+###Executing custom SQL directly
+
 ##Database transactions
 ##Multiple databases
 ##Tablespaces
