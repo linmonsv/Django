@@ -206,6 +206,41 @@ with connection.cursor() as c:
     c.execute(...)
 
 ##Database transactions
+###Managing database transactions
+**Django’s default transaction behavior**
+autocommit mode
+**Tying transactions to HTTP requests**
+non_atomic_requests
+It only works if it’s applied to the view itself.
+**Controlling transactions explicitly**
+1. decorator
+@transaction.atomic
+2. context manager
+with transaction.atomic():
+###Autocommit
+Why Django uses autocommit
+**Deactivating transaction management**
+setting AUTOCOMMIT to False in its configuration
+###Performing actions after commit
+New in Django 1.9
+Django provides the on_commit() function to register callback functions that should be executed after a transaction is successfully committed:
+You can also wrap your function in a lambda
+**Savepoints**
+**Order of execution**
+the order they were registered
+**Exception handling**
+**Timing of execution**
+* two-phase commit
+* commit functions only work with autocommit mode
+**Use in tests**
+TransactionTestCase Maybe need
+**Why no rollback hook**
+instead of doing something during the atomic block (transaction) and then undoing it if the transaction fails, 
+use on_commit() to delay doing it in the first place until after the transaction succeeds
+
+
+
+
 ##Multiple databases
 ##Tablespaces
 ##Database access optimization
