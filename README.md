@@ -238,8 +238,21 @@ TransactionTestCase Maybe need
 instead of doing something during the atomic block (transaction) and then undoing it if the transaction fails, 
 use on_commit() to delay doing it in the first place until after the transaction succeeds
 
+###Low-level APIs
+* Django will refuse to turn autocommit off when an atomic() block is active, because that would break atomicity
 
+* Django doesn’t provide an API to start a transaction. The expected way to start a transaction is to disable autocommit with set_autocommit().
 
+* A savepoint is a marker within a transaction that enables you to roll back part of a transaction, rather than the full transaction
+
+###Database-specific notes
+* SQLite ≥ 3.6.8, hardly usable
+* MySQL version and the table types(“InnoDB” or “MyISAM”.)
+* PostgreSQL 
+1. Transaction rollback
+would be lost, even though that operation raised no error itself
+2. Savepoint rollback
+will not be undone in the case where b.save() raises an exception ╮(╯▽╰)╭
 
 ##Multiple databases
 ##Tablespaces
