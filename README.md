@@ -255,6 +255,51 @@ would be lost, even though that operation raised no error itself
 will not be undone in the case where b.save() raises an exception ╮(╯▽╰)╭
 
 ##Multiple databases
+###Defining your databases
+**Defining your databases**
+settings.py
+If the concept of a default database doesn’t make sense in the context of your project, 
+you need to be careful to always specify the database that you want to use
+**Synchronizing your databases**
+ --database option, you can tell it to synchronize a different database
+**Using other management commands**
+
+###Automatic database routing
+**Database routers**
+1. db_for_read
+2. db_for_write
+3. allow_relation
+4. allow_migrate
+**Using routers**
+1. First we want a router that knows to send queries
+2. a router that sends all other apps to the
+3. settings 
+file DATABASE_ROUTERS = ['path.to.AuthRouter', 'path.to.PrimaryReplicaRouter']
+
+###Manually selecting a database
+priority higher than router
+**Manually selecting a database for a QuerySet**
+using() takes a single argument: the alias of the database
+**Selecting a database for save()**
+Moving an object from one database to another
+two ways : 
+1. Clear the primary key, Write a completely new object
+2. force_insert option to save() 
+**Selecting a database to delete from**
+**Using managers with multiple databases**
+Using get_queryset() with multiple databases
+_db attribute on the manager
+
+###Exposing multiple databases in Django’s admin interface
+Django’s admin doesn’t have any explicit support for multiple databases
+need to write custom ModelAdmin classes
+five methods that require customization
+
+
+###Using raw cursors with multiple databases
+
+###Limitations of multiple databases
+
 ##Tablespaces
 ##Database access optimization
 ##Examples of model relationship API usage##
