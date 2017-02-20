@@ -297,8 +297,14 @@ five methods that require customization
 
 
 ###Using raw cursors with multiple databases
+cursor = connections['my_db_alias'].cursor()
 
 ###Limitations of multiple databases
+**Cross-database relations**
+Django doesn’t currently provide any support
+
+**Behavior of contrib apps**
+
 
 ##Tablespaces
 ##Database access optimization
