@@ -308,6 +308,19 @@ some restrictions
 no zuo no die
 
 ##Tablespaces
+optimizing performance
+* Django does not create the tablespaces for you
+**Declaring tablespaces for tables**
+db_tablespace option inside the model’s class Meta.
+
+**Declaring tablespaces for indexes**
+pass the db_tablespace option to a Field constructor
+
+**Database support**
+* PostgreSQL and Oracle support
+
+* SQLite and MySQL don’
+
 ##Database access optimization
 ##Examples of model relationship API usage##
 
