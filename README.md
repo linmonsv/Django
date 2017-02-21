@@ -353,4 +353,11 @@ sometimes
 reduce the number of SQL queries
 
 ##Examples of model relationship API usage##
+* Many-to-many relationships
+ManyToManyField
+* Many-to-one relationships
+ForeignKey
+* One-to-one relationships
+OneToOneField
+
 
