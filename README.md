@@ -304,7 +304,8 @@ cursor = connections['my_db_alias'].cursor()
 Django doesn’t currently provide any support
 
 **Behavior of contrib apps**
-
+some restrictions
+no zuo no die
 
 ##Tablespaces
 ##Database access optimization
