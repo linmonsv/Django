@@ -360,4 +360,48 @@ ForeignKey
 * One-to-one relationships
 OneToOneField
 
+# Handling HTTP requests
 
+## URL dispatcher
+### How Django processes a request
+### Example
+### Named groups
+* If there are any named arguments, it will use those
+### What the URLconf searches against
+This does not include GET or POST parameters, or the domain name
+### Captured arguments are always strings
+### Specifying defaults for view arguments
+### Performance
+urlpatterns is compiled the first time it’s accessed
+### Syntax of the urlpatterns variable
+a Python list of url() instances
+### Error handling
+Such values can be set in your root URLconf. Setting these variables in any other URLconf will have no effect
+### Including other URLconfs
+urlpatterns can “include” other URLconf modules
+* Captured parameters
+An included URLconf receives any captured parameters from parent URLconfs
+### Nested arguments
+### Passing extra options to view functions
+* Passing extra options to include()
+
+
+
+
+
+
+
+
+## Writing views
+
+## View decorators
+
+## File Uploads
+
+## Django shortcut functions
+
+## Generic views
+
+## Middleware
+
+## How to use sessions
