@@ -322,5 +322,35 @@ pass the db_tablespace option to a Field constructor
 * SQLite and MySQL don’
 
 ##Database access optimization
+###Profile first
+###Use standard DB optimization techniques
+* indexes
+* field types
+### Understand QuerySets
+* Understand QuerySet evaluation
+* Understand cached attributes
+* Use the with template tag
+* Use iterator()
+### Do database work in the database rather than in Python
+### Retrieve individual objects using a unique, indexed column
+### Retrieve everything at once if you know you will need it
+* Use QuerySet.select_related() and prefetch_related()
+### Don’t retrieve things you don’t need
+**Use QuerySet.values() and values_list()**
+just want a dict or list of values, and don’t need ORM model objects
+**Use QuerySet.defer() and only()**
+you know that you won’t need
+**Use QuerySet.count()**
+only want the count
+**Use QuerySet.exists()**
+only want to find out if at least one result exists
+**Don’t overuse count() and exists()**
+sometimes
+**Use QuerySet.update() and delete()**
+**Use foreign key values directly**
+**Don’t order results if you don’t care**
+### Insert in bulk
+reduce the number of SQL queries
+
 ##Examples of model relationship API usage##
 
