@@ -423,10 +423,21 @@ Putting a prefix on your URL names
 ### Vary headers
 ### Caching
 
-
-
-
 ## File Uploads
+### Basic file uploads
+a simple form containing a FileField
+### Handling uploaded files with a model
+using a ModelForm
+### Uploading multiple files
+override the post method of your FormView subclass to
+### Upload Handlers
+* Where uploaded data is stored
+1. is smaller than 2.5 megabytes, in memory
+2. temporary directory
+### Changing upload handler behavior
+### Modifying upload handlers on the fly
+1. insert, request.upload_handlers.insert(0, ProgressBarUploadHandler(request))
+2. assign, request.upload_handlers = [ProgressBarUploadHandler(request)]
 
 ## Django shortcut functions
 
