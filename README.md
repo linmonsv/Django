@@ -453,5 +453,32 @@ Returns the result of filter() on a given model manager cast to a list, raising 
 ## Generic views
 
 ## Middleware
+Middleware is a framework of hooks into Django’s request/response processing. 
+It’s a light, low-level “plugin” system for `globally` altering Django’s input or output
+
+### Writing your own middleware
+A middleware factory is a callable that takes a get_response callable and returns a middleware
+
+### Marking middleware as unused
+middleware’s __init__() method may raise MiddlewareNotUsed
+
+### Activating middleware
+add it to the MIDDLEWARE list in your Django settings
+**The order in MIDDLEWARE matters because a middleware can depend on other middleware.** 
+
+### Middleware order and layering
+think of it like an onion: each middleware class is a “layer” that wraps the view
+
+### Other middleware hooks
+three other special methods to class-based middleware
+1. process_view()
+2. process_exception()
+3. process_template_response()
+
+### Dealing with streaming responses
+they must test for streaming responses
+
+### Exception handling
+automatically converts exceptions
 
 ## How to use sessions
