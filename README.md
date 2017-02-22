@@ -537,3 +537,53 @@ by inheriting AbstractBaseSession and either SessionStore class
 
 ### Session IDs in URLs
 It does not fall back to putting session IDs in URLs as a last resort, as PHP does
+
+# Form
+
+## Working with forms
+In HTML, a form is a collection of elements inside <form>...</form> 
+GET and POST are the only HTTP methods to use when dealing with forms
+### Django’s role in forms
+### Forms in Django
+* The Django Form class
+* Instantiating, processing, and rendering forms
+### Building a form
+### Building a form in Django
+### More about Django Form classes
+Bound and unbound form instances
+1. An unbound form has no data
+2. can be used to tell if that data is valid
+### Working with form templates
+
+## Formsets
+It can be best compared to a data grid
+The number of empty forms that is displayed is controlled by the extra parameter
+### Using initial data with a formset
+ArticleFormSet(request.POST, initial=[...]).
+### Limiting the maximum number of forms
+ArticleFormSet = formset_factory(ArticleForm, extra=2, max_num=1)
+* max_num
+* extra
+* initial
+### Formset validation
+BaseFormSet.total_error_count()
+* Understanding the ManagementForm
+the additional data (form-TOTAL_FORMS, form-INITIAL_FORMS and form-MAX_NUM_FORMS)
+* total_form_count : the total number of forms
+* initial_form_count : pre-filled
+* empty_form : returns a form instance with a prefix of __prefix__ for easier use in dynamic forms with JavaScript
+### Custom formset validation
+clean method
+### Validating the number of forms in a formset
+
+
+
+
+
+
+
+## Creating forms from models
+
+## Form Assets (the Media class)
+
+
