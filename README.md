@@ -382,15 +382,32 @@ urlpatterns can “include” other URLconf modules
 * Captured parameters
 An included URLconf receives any captured parameters from parent URLconfs
 ### Nested arguments
+**only capture the values the view needs to work with and use non-capturing arguments when the regular expression needs an argument but the view ignores it**
 ### Passing extra options to view functions
+an optional third argument which should be a dictionary
 * Passing extra options to include()
-
-
-
-
-
-
-
+### Reverse resolution of URLs
+performing URL reversing
+1. In templates: Using the url template tag.
+2. In Python code: Using the reverse() function.
+3. In higher level code related to handling of URLs of Django model instances: The get_absolute_url() method.
+* Examples
+### Naming URL patterns
+Putting a prefix on your URL names
+### URL namespaces
+* Introduction
+1. application namespace
+2. instance namespace
+**Namespaced URLs are specified using the ':' operator**
+### Reversing namespaced URLs
+1. matching application namespace
+2. If there is, URL resolver for that instance
+3. If there is no, default application instance is the instance that has an instance namespace matching the application namespace
+4. If there is no default application instance, pick the last deployed, whatever its instance name
+5. If the provided namespace doesn’t match an application namespace in step 1, Django will attempt a direct lookup of the namespace as an instance namespace
+### URL namespaces and included URLconfs
+* pass the actual module, or a string reference to the module, to include(), not the list of urlpatterns itself
+* include() a 2-tuple containing (<list of url() instances>, <application namespace>)
 
 ## Writing views
 
