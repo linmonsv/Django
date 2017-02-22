@@ -410,6 +410,14 @@ Putting a prefix on your URL names
 * include() a 2-tuple containing (<list of url() instances>, <application namespace>)
 
 ## Writing views
+### A simple view
+### Mapping URLs to views
+### Returning errors
+### The Http404 exception
+### Customizing error views
+
+
+
 
 ## View decorators
 
