@@ -416,10 +416,15 @@ Putting a prefix on your URL names
 ### The Http404 exception
 ### Customizing error views
 
-
-
-
 ## View decorators
+### Allowed HTTP methods
+### Conditional view processing
+### GZip compression
+### Vary headers
+### Caching
+
+
+
 
 ## File Uploads
 
