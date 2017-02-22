@@ -575,12 +575,23 @@ the additional data (form-TOTAL_FORMS, form-INITIAL_FORMS and form-MAX_NUM_FORMS
 ### Custom formset validation
 clean method
 ### Validating the number of forms in a formset
-
-
-
-
-
-
+Django provides a couple ways to validate the minimum or maximum number of submitted forms
+* validate_max
+* validate_min
+### Dealing with ordering and deletion of forms
+* can_order  Default: False
+* can_delete Default: False
+1. If you are using a ModelFormSet, model instances for deleted forms will be deleted when you call formset.save().
+2. If you call formset.save(`commit=False`), objects `will not be deleted` automatically. You’ll need to call delete() on each of the formset.deleted_objects to actually delete them
+### Adding additional fields to a formset
+add_fields, simply override this method
+### Passing custom parameters to formset forms
+* pass this parameter when instantiating the formset
+* The formset base class provides a get_form_kwargs method. The method takes a single argument - the index of the form in the formset
+### Using a formset in views and templates
+Manually rendered can_delete and can_order
+### Using more than one formset in a view
+you need to pass prefix on both the POST and non-POST cases
 
 ## Creating forms from models
 
