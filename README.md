@@ -440,6 +440,15 @@ override the post method of your FormView subclass to
 2. assign, request.upload_handlers = [ProgressBarUploadHandler(request)]
 
 ## Django shortcut functions
+render(request, template_name, context=None, content_type=None, status=None, using=None)[source]
+### Optional arguments
+### render_to_response()
+not recommended
+### redirect()
+### get_object_or_404()
+Calls get() on a given model manager, but it raises Http404 instead of the model’s DoesNotExist exception
+### get_list_or_404()
+Returns the result of filter() on a given model manager cast to a list, raising Http404 if the resulting list is empty.
 
 ## Generic views
 
