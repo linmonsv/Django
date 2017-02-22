@@ -482,3 +482,58 @@ they must test for streaming responses
 automatically converts exceptions
 
 ## How to use sessions
+contain a session ID – not the data itself (unless you’re using the cookie based backend).
+
+### Enabling sessions
+Edit the MIDDLEWARE setting
+
+### Configuring the session engine
+* Using database-backed sessions
+* Using cached sessions
+have multiple caches
+**how to store data**
+1. may not be persistent
+2. For persistent
+
+### Using file-based sessions
+
+### Using cookie-based sessions
+
+### Using sessions in views
+read it and write to request.session at any point in your view
+* Session serialization
+default , json
+**Write your own serializer**
+store more advanced data types including datetime and Decimal
+
+### Session object guidelines
+
+### Setting test cookies
+Django provides an easy way to test whether the user’s browser accepts cookies
+
+### Using sessions out of views
+
+### When sessions are saved
+By default, Django only saves to the session database when the session has been modified – 
+that is if any of its dictionary values have been assigned or deleted
+we can **tell the session object explicitly** that it has been modified 
+by setting the modified attribute on the session object
+
+### Browser-length sessions vs. persistent sessions
+* don’t want people to have to log in every time they open a browser
+* have to log in every time they open a browser
+
+### Clearing the session store
+
+### Settings
+
+### Session security
+
+### Technical details
+* The SessionStore object
+
+### Extending database-backed session engines
+by inheriting AbstractBaseSession and either SessionStore class
+
+### Session IDs in URLs
+It does not fall back to putting session IDs in URLs as a last resort, as PHP does
