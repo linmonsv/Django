@@ -633,11 +633,25 @@ Like regular formsets, Django provides a couple of enhanced formset classes that
 ### Providing initial values
 However, with model formsets, the initial values only apply to extra forms, those that aren’t attached to an existing model instance
 ### Saving objects in the formset
-
-
-
-
-
+### Limiting the number of editable objects
+use the max_num and extra parameters to modelformset_factory() to limit the number of extra forms displayed
+A max_num value of None (the default) puts a high limit on the number of forms displayed (1000)
+### Using a model formset in a view
+very similar to formsets
+### Overriding clean() on a ModelFormSet
+If you wish to modify a value in ModelFormSet.clean() you must modify form.instance:
+### Using a custom queryset
+### Using the formset in the template
+### Inline formsets
+Inline formsets is a small abstraction layer on top of model formsets
+### Overriding methods on an InlineFormSet
+you should subclass BaseInlineFormSet
+### More than one foreign key to the same model
+use fk_name to inlineformset_factory()
+### Using an inline formset in a view
+provide a view that allows a user to edit the related objects of a model
+### Specifying widgets to use in the inline form
+you can use the widgets parameter in much the same way as passing it to modelformset_factory
 
 ## Form Assets (the Media class)
 
