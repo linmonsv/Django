@@ -714,6 +714,23 @@ Context processors are functions that receive the current HttpRequest as an argu
 * CPU time and bandwidth 
 
 ## Introduction to class-based views
+### Using class-based views
+* url(r'^about/$', GreetingView.as_view(greeting="G'day")),
+* def get(self, request):
+### Using mixins
+Mixins are a form of multiple inheritance where behaviors and attributes of multiple parent classes can be combined
+### Handling forms with class-based views
+def get(self, request, *args, **kwargs):
+def post(self, request, *args, **kwargs):
+### Decorating class-based views
+* Decorating in URLconf
+The simplest way of decorating class-based views is to decorate the result of the as_view() method. 
+The easiest place to do this is in the URLconf where you deploy your view
+* Decorating the class
+apply the decorator to the dispatch() method of the class
+transform it into a method decorator first
+you can define a list or tuple of decorators 
+
 ## Built-in class-based generic views
 ## Form handling with class-based views
 ## Using mixins with class-based views
