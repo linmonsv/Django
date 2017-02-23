@@ -708,4 +708,12 @@ Template loaders are responsible for locating templates, loading them, and retur
 * Context processors
 Context processors are functions that receive the current HttpRequest as an argument and return a dict of data to be added to the rendering context
 
+# Class-based views
+* structure your views and reuse code by harnessing inheritance and mixins
+* TemplateView is a class, not a function, so we point the URL to the as_view() class method instead
+* CPU time and bandwidth 
 
+## Introduction to class-based views
+## Built-in class-based generic views
+## Form handling with class-based views
+## Using mixins with class-based views
