@@ -654,5 +654,20 @@ provide a view that allows a user to edit the related objects of a model
 you can use the widgets parameter in much the same way as passing it to modelformset_factory
 
 ## Form Assets (the Media class)
-
+### Assets as a static definition
+The easiest way to define assets is as a static definition
+Using this method, the declaration is an inner Media class. The properties of the inner class define the requirements
+### extend
+A boolean defining inheritance behavior for Media declarations.
+### Media as a dynamic property
+perform some more sophisticated manipulation of asset requirements
+### Paths in asset definitions
+To find the appropriate prefix to use, Django will check if the STATIC_URL setting is not None and automatically fall back to using MEDIA_URL
+### Media objects
+use the subscript operator to filter out a medium of interest
+print(w.media['css'])
+### Combining Media objects
+print(w1.media + w2.media)
+### Media on Forms
+all Form objects have a media property
 
