@@ -605,6 +605,38 @@ Calling save_m2m() is only required if you use save(commit=False)
 ### Selecting the fields to use
 strongly recommended that you explicitly set all fields
 ### Overriding the default fields
+* specify a custom widget for a field, use the widgets attribute of the inner Meta class
+* specify the labels, help_texts and error_messages attributes of the inner Meta class 
+* specify field_classes to customize the type of fields instantiated by the form
+* specify a field’s validators, you can do so by defining the field declaratively and setting its validators parameter
+### Enabling localization of fields
+By default, the fields in a ModelForm will not localize their data. To enable localization for fields, you can use the localized_fields attribute on the Meta class
+### Form inheritance
+* declare extra fields or extra methods on a parent class
+* subclass the parent’s Meta inner class if you want to change the Meta.fields or Meta.exclude lists
+a couple of things to note
+* If you have multiple base classes that declare a Meta inner class, only the first one will be used
+* ensure that ModelForm appears first in the MRO
+* declaratively remove a Field
+### Providing initial values
+specifying an initial parameter when instantiating the form
+### ModelForm factory function
+using the standalone function modelform_factory(), instead of using a class definition
+* make simple modifications to existing forms
+* specified using the fields and exclude keyword arguments
+### Model formsets
+Like regular formsets, Django provides a couple of enhanced formset classes that make it easy to work with Django models
+* Changing the queryset
+### Changing the form
+### Specifying widgets to use in the form with widgets
+### Enabling localization for fields with localized_fields
+### Providing initial values
+However, with model formsets, the initial values only apply to extra forms, those that aren’t attached to an existing model instance
+### Saving objects in the formset
+
+
+
+
 
 
 ## Form Assets (the Media class)
