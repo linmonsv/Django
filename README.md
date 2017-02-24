@@ -732,5 +732,25 @@ transform it into a method decorator first
 you can define a list or tuple of decorators 
 
 ## Built-in class-based generic views
+1. Display list and detail pages for a single object
+2. Present date-based objects in year/month/day archive pages
+3. Allow users to create, update, and delete objects – with or without authorization
+### Extending generic views
+### Generic views of objects
+* Making “friendly” template contexts
+The context_object_name attribute on a generic view specifies the context variable to use
+### Adding extra context
+provide your own implementation of the get_context_data method
+_context_object_name_
+### Viewing subsets of objects
+using queryset to define a filtered list of objects 
+_template_name_
+### Dynamic filtering
+The key part to making this work is that when class-based views are called, various useful things are stored on self; 
+as well as the request (self.request) this includes **the positional (self.args)** 
+and **name-based (self.kwargs) arguments** captured according to the URLconf
+### Performing extra work
+
 ## Form handling with class-based views
+
 ## Using mixins with class-based views
