@@ -752,5 +752,10 @@ and **name-based (self.kwargs) arguments** captured according to the URLconf
 ### Performing extra work
 
 ## Form handling with class-based views
+* Initial GET (blank or prepopulated form)
+* POST with invalid data (typically redisplay form with errors)
+* POST with valid data (process the data and typically redirect)
+### Model forms
+### Models and request.user
 
 ## Using mixins with class-based views
