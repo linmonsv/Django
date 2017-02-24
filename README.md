@@ -759,3 +759,25 @@ and **name-based (self.kwargs) arguments** captured according to the URLconf
 ### Models and request.user
 
 ## Using mixins with class-based views
+Context and template responses
+* TemplateResponseMixin
+* ContextMixin
+### Building up Django’s generic class-based views
+* DetailView: working with a single Django object
+* ListView: working with many Django objects
+### Using Django’s class-based view mixins
+* Using SingleObjectMixin with View
+* Using SingleObjectMixin with ListView
+### Avoid anything more complex
+* Using FormMixin with DetailView
+### A better solution
+### An alternative better solution
+
+# Migrations
+## The Commands
+* migrate, which is responsible for applying and unapplying migrations.
+* makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+* sqlmigrate, which displays the SQL statements for a migration.
+* showmigrations, which lists a project’s migrations and their status.
+
+
