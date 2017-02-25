@@ -846,3 +846,35 @@ can use the global default storage system
 ### The built-in filesystem storage class
 store uploaded files under /media/photos regardless of what your MEDIA_ROOT setting is
 
+# Testing in Django
+
+## Writing and running tests
+### Writing tests
+Django’s unit tests use a Python standard library module: unittest
+### Running tests
+```
+$ ./manage.py test
+```
+**The test database**
+### Order in which tests are executed
+1. All TestCase subclasses are run first
+2. all other Django-based tests
+3. Then any other unittest.TestCase tests
+### Rollback emulation
+Django can reload that data for you on a per-testcase basis by setting the serialized_rollback option to True in the body of the TestCase or TransactionTestCase
+### Other test conditions
+all Django tests run with DEBUG=False
+### Understanding the test output
+### Speeding up the tests
+* Running tests in parallel
+As long as your tests are properly isolated, you can run them in parallel to gain a speed up on multi-core hardware
+* Password hashing
+set the PASSWORD_HASHERS setting to a faster hashing algorithm
+
+## Testing tools
+## Advanced testing topics
+
+
+
+
+
