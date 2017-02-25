@@ -779,5 +779,29 @@ Context and template responses
 * makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
 * sqlmigrate, which displays the SQL statements for a migration.
 * showmigrations, which lists a project’s migrations and their status.
+### Backend Support
+* PostgreSQL
+the most capable
+* MySQL
+lacks support for transactions around schema alteration operations
+* SQLite
+very little
+### Workflow
+1. Make changes to your models and then run makemigrations
+```
+$python manage.py makemigrations
+```
+2. Once you have your new migration files
+```
+$python manage.py migrate
+```
+* Version control
+go in and modify the migrations yourself
+### Dependencies
+This dependency behavior affects most migration operations where you restrict to a single app. Restricting to a single app (either in makemigrations or migrate) is a best-efforts promise, and not a guarantee; any other apps that need to be used to get dependencies correct will be.
+### Migration files
+
+
+
 
 
