@@ -832,34 +832,17 @@ Squashing is the act of reducing an existing set of many migrations down to one 
 ### Supporting multiple Django versions
 If you are the maintainer of a third-party app with models, you may need to ship migrations that support multiple Django versions
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Managing files
+By default, Django stores files locally, using the MEDIA_ROOT and MEDIA_URL settings
+### Using files in models
+* name
+* path
+* url
+### The File object
+### File storage
+Django’s default file storage is given by the DEFAULT_FILE_STORAGE setting
+**Storage objects**
+can use the global default storage system
+### The built-in filesystem storage class
+store uploaded files under /media/photos regardless of what your MEDIA_ROOT setting is
 
