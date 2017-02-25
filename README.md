@@ -800,6 +800,64 @@ go in and modify the migrations yourself
 ### Dependencies
 This dependency behavior affects most migration operations where you restrict to a single app. Restricting to a single app (either in makemigrations or migrate) is a best-efforts promise, and not a guarantee; any other apps that need to be used to get dependencies correct will be.
 ### Migration files
+These files are actually just normal Python files with an agreed-upon object layout, written in a declarative style
+* dependencies
+* operations
+**Custom fields**
+if you need a new argument, please create a keyword argument and add something like assert 'argument_name' in kwargs in the constructor
+### Model managers
+* optionally serialize managers into migrations and have them available in RunPython operations
+* If you are using the from_queryset() function to dynamically generate a manager class, you need to inherit from the generated class to make it importable
+### Initial migrations
+**migrate --fake-initial**
+### History consistency
+using multiple databases, you can use the allow_migrate() method of database routers to control which databases makemigrations checks for consistent history
+### Adding migrations to apps
+If your app already has models and database tables, and doesn’t have migrations yet
+, you’ll need to convert it to use migrations; this is a simple process:
+### Historical models
+### Considerations when removing model fields
+Add the system_check_deprecated_details attribute to your model field 
+### Data Migrations
+1. To start, make an empty migration file
+2. Let’s write the file
+3. python manage.py migrate
+* Accessing models from other apps
+### More advanced migrations
+### Squashing migrations
+Squashing is the act of reducing an existing set of many migrations down to one (or sometimes a few) migrations which still represent the same changes
+### Serializing values
+* Adding a deconstruct() method
+### Supporting Python 2 and 3
+### Supporting multiple Django versions
+If you are the maintainer of a third-party app with models, you may need to ship migrations that support multiple Django versions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
