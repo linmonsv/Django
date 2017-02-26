@@ -872,6 +872,24 @@ As long as your tests are properly isolated, you can run them in parallel to gai
 set the PASSWORD_HASHERS setting to a faster hashing algorithm
 
 ## Testing tools
+### The test client
+The test client is a Python class that acts as a dummy Web browser, allowing you to test your views and interact with your Django-powered application programmatically
+### Overview and a quick example
+instantiate Client from within a session of the Python interactive interpreter
+### Making requests
+Use the django.test.Client class to make requests
+
+
+
+
+
+
+
+
+
+
+
+
 ## Advanced testing topics
 
 
