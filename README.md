@@ -1015,6 +1015,36 @@ the main admin index page
 the password storage details are displayed
 
 ## Password management in Django
+### How Django stores passwords
+<algorithm>$<iterations>$<salt>$<hash>
+By default, Django uses the PBKDF2 algorithm with a SHA256 hash, a password stretching mechanism recommended by NIST
+if you want to use a different algorithm, you’ll need to modify PASSWORD_HASHERS to list your preferred algorithm first in the list
+### Using Argon2 with Django
+recommends immediate use of Argon2
+### Using bcrypt with Django
+### Increasing the work factor
+**PBKDF2 and bcrypt**
+you’ll subclass the appropriate algorithm and override the iterations parameters
+1. Create a subclass of django.contrib.auth.hashers.PBKDF2PasswordHasher
+2. Add your new hasher as the first entry in PASSWORD_HASHERS
+### Argon2
+Argon2 has three attributes that can be customized
+1. time_cos
+2. memory_cost
+3. parallelism
+### Password upgrading
+Be aware that if all the passwords in your database aren’t encoded in the default hasher’s algorithm,,,
+### Password upgrading without requiring a login
+you can use a “wrapped” password hasher
+### Included hashers
+### Writing your own hasher
+### Manually managing a user’s password
+### Password validation
+Password validation can prevent the use of many types of weak passwords
+### Enabling password validation
+### Included validators
+### Integrating validation
+### Writing your own validator
 
 ## Customizing authentication in Django
 
