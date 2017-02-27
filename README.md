@@ -1093,3 +1093,31 @@ This works best if you’ve got a fast, well-indexed database server
 it’s probably not a good choice for production environments. It’s nice for development
 ### Dummy caching (for development)
 doesn’t actually cache – it just implements the cache interface without doing anything
+### Using a custom cache backend
+hehe da
+### Cache arguments
+configured with a timeout of ,,, seconds, and a maximum capacity of ,,, items
+and something ...
+### The per-site cache
+add ,,, to your MIDDLEWARE setting
+### The per-view cache
+defines a cache_page decorator
+### Specifying per-view cache in the URLconf
+wrap the view function with cache_page
+### Template fragment caching
+put {% load cache %} near the top of your template
+passing additional arguments to the {% cache %} template tag to uniquely identify the cache fragment
+### The low-level cache API
+### Accessing the cache
+### Basic usage
+### Cache key prefixing
+### Cache versioning
+### Cache key transformation
+### Cache key warnings
+does not allow cache keys longer than 250 characters or containing whitespace or control characters
+1. warnings.simplefilter("ignore", CacheKeyWarning)
+2. override just the validate_key method
+### Downstream caches
+### Using Vary headers
+
+
