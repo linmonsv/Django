@@ -1079,6 +1079,17 @@ If your project uses proxy models, you must either modify the proxy to extend th
 ### A full example
 
 # Django’s cache framework
-
-
-
+### Setting up the cache
+an important decision that affects your cache’s performance
+### Memcached
+1. Set BACKEND to ,,,
+2. Set LOCATION to ,,,
+### Database caching
+This works best if you’ve got a fast, well-indexed database server
+**Creating the cache table**
+**Multiple databases**
+### Filesystem caching
+### Local-memory caching
+it’s probably not a good choice for production environments. It’s nice for development
+### Dummy caching (for development)
+doesn’t actually cache – it just implements the cache interface without doing anything
