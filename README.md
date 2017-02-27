@@ -878,19 +878,97 @@ The test client is a Python class that acts as a dummy Web browser, allowing you
 instantiate Client from within a session of the Python interactive interpreter
 ### Making requests
 Use the django.test.Client class to make requests
-
-
-
-
-
-
-
-
-
-
-
+### Testing responses
+The get() and post() methods both return a Response object. This Response object is not the same as the HttpResponse object returned by Django views; the test response object has some additional data useful for test code to verify
+### Exceptions
+some exceptions that are not visible to the test client
+### Persistent state
+The test client is stateful
+A test client has two attributes that store persistent state information. You can access these properties as part of a test condition
+### Setting the language
+1. self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: 'fr'})
+2. response = self.client.get('/', HTTP_ACCEPT_LANGUAGE='fr')
+3. with translation.override('fr'):
+### Provided test case classes
+a few extensions of this base class
+### SimpleTestCase
+A subclass of unittest.TestCase that adds this functionality
+### TransactionTestCase
+inherits from SimpleTestCase to add some database-specific 
+### TestCase
+This is the most common class to use for writing tests in Django. It inherits from TransactionTestCase 
+### LiveServerTestCase
+allows the use of automated test clients other than the Django dummy client
+To demonstrate how to use LiveServerTestCase, let’s write a simple Selenium test
+### Test cases features
+#### Default test client
+**SimpleTestCase.client**
+This client is recreated for each test
+### Customizing the test client
+**SimpleTestCase.client_class**
+### Fixture loading
+A fixture is a collection of data that Django knows how to import into a database
+### URLconf configuration
+your tests can’t rely upon the fact
+### Multi-database support
+multi_db = True, flush all the test databases before running test,,,view
+### Overriding settings
+### Emptying the test outbox
+### Assertions
+### Tagging tests
+You can tag your tests so you can easily run a particular subset
+### Email services
+automatically redirects all Django-sent email to a dummy outbox
+### Management Commands
+Management commands can be tested with the call_command() function. The output can be redirected into a StringIO instance
+### Skipping tests
+check the capabilities of the database, and skip the test if the database doesn’t support a specific named feature
 
 ## Advanced testing topics
+### The request factory
+you can test a view function the same way as you would test any other function
+a slightly restricted
+### Tests and multiple databases
+#### Testing primary/replica configurations
+### Controlling creation order for test databases
+you can specify the dependencies that exist using the DEPENDENCIES test setting
+### Advanced features of TransactionTestCase
+* TransactionTestCase.available_apps
+a private API. It may be changed or removed
+It’s used to optimize Django’s own test suite
+* TransactionTestCase.reset_sequences
+make sure sequences are always reset before the test run
+### Using the Django test runner to test reusable applications
+use the Django test runner to run your own test suite
+you can add command-line options for controlling verbosity, passing in specific test labels to run
+### Using different testing frameworks
+#### Defining a test runner
+### Testing utilities
+### Integration with coverage.py
+check the coverage of your tests.
+
+# User authentication in Django
+* user accounts
+* groups
+* permissions
+* cookie-based user sessions
+### Overview
+1. authentication verifies a user is who they claim to be
+2. authorization determines what an authenticated user is allowed to do
+#### The auth system consists of:
+* Users
+* Permissions: Binary (yes/no) flags designating whether a user may perform a certain task.
+* Groups: A generic way of applying labels and permissions to more than one user.
+* A configurable password hashing system
+* Forms and view tools for logging in users, or restricting content
+* A pluggable backend system
+#### third-party packages
+* Password strength checking
+* Throttling of login attempts
+* Authentication against third-parties (OAuth, for example)
+### Installation
+
+## Using the Django authentication system
 
 
 
