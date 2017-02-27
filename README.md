@@ -969,8 +969,56 @@ check the coverage of your tests.
 ### Installation
 
 ## Using the Django authentication system
+### User objects
+**Creating users**
+### Creating superusers
+### Changing passwords
+set_password():
+### Authenticating users
+### Permissions and Authorization
+Permissions can be set not only per type of object, but also per specific object instance
+### Default permissions
+### Groups
+A user in a group automatically has the permissions granted to that group
+### Programmatically creating permissions
+While custom permissions can be defined within a model’s Meta class, you can also create permissions directly
+### Permission caching
+If you are adding permissions and checking them immediately afterward, in a test or view for example, the easiest solution is to re-fetch the user from the database
+### Authentication in Web requests
+#### How to log a user in
+**Selecting the authentication backend**
+#### How to log a user out
+### Limiting access to logged-in users
+1. The raw way
+The simple, raw way to limit access to pages is to check request.user.is_authenticated and either redirect to a login page
+2. The login_required decorator
+### The LoginRequired mixin
+class MyView(LoginRequiredMixin, View):
+### Limiting access to logged-in users that pass a test
+* you can use the convenient user_passes_test decorator which performs a redirect when the callable returns False
+* When using class-based views, you can use the UserPassesTestMixin to do this
+### The permission_required decorator
+It’s a relatively common task to check whether a user has a particular permission
+### The PermissionRequiredMixin mixin
+To apply permission checks to class-based views, you can use the PermissionRequiredMixin
+### Redirecting unauthorized requests in class-based views
+To ease the handling of access restrictions in class-based views, the AccessMixin can be used to redirect a user to the login page or issue an HTTP 403 Forbidden response
+### Authentication Views
+### All authentication views
+### Helper functions
+### Built-in forms
+### Authentication data in templates
+### Managing users in the admin
+* Creating users
+the main admin index page
+* Changing passwords
+the password storage details are displayed
 
+## Password management in Django
 
+## Customizing authentication in Django
+
+# Django’s cache framework
 
 
 
