@@ -1047,6 +1047,36 @@ Password validation can prevent the use of many types of weak passwords
 ### Writing your own validator
 
 ## Customizing authentication in Django
+### Other authentication sources
+You can override Django’s default database-based scheme, or you can use the default system in tandem with other systems
+### Specifying authentication backends
+### Writing an authentication backend
+### Handling authorization in custom backends
+* Authorization for anonymous users
+* Authorization for inactive users
+**Handling object permissions**
+### Custom permissions
+use the permissions model Meta attribute
+### Extending the existing User model
+### Substituting a custom User model
+* Using a custom user model when starting a project
+**highly recommended**
+* Changing to a custom user model mid-project
+the model referenced by AUTH_USER_MODEL must be created in the first migration of its app
+### Reusable apps and AUTH_USER_MODEL
+Reusable apps shouldn’t implement a custom user model
+### Referencing the User model
+### Specifying a custom user model
+The easiest way to construct a compliant custom user model is to inherit from AbstractBaseUser. AbstractBaseUser provides the core implementation of a user model, including hashed passwords and tokenized password resets
+### Extending Django’s default User
+### Custom users and the built-in auth forms
+### Custom users and django.contrib.admin
+If you want your custom user model to also work with the admin, your user model must define some additional attributes and methods. These methods allow the admin to control access of the user to admin content
+### Custom users and permissions
+include Django’s permission framework into your own user class
+### Custom users and proxy models
+If your project uses proxy models, you must either modify the proxy to extend the user model that’s in use in your project, or merge your proxy’s behavior into your User subclass.
+### A full example
 
 # Django’s cache framework
 
