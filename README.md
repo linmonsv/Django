@@ -1158,5 +1158,38 @@ This allows you to confirm that a signed value was created within a specified pe
 ### Protecting complex data structures
 using the signing module’s dumps and loads functions
 
-
-
+# Sending email
+### send_mail()
+### send_mass_mail()
+send_mail() opens a connection to the mail server each time it’s executed, 
+while send_mass_mail() uses a single connection for all of its messages
+### mail_admins()
+a shortcut for sending an email to the site admins
+### mail_managers()
+sends an email to the site managers
+### Preventing header injection
+The Django email functions outlined above all protect against header injection by forbidding newlines in header values
+### The EmailMessage class
+If you wish to use advanced features, you’ll need to create EmailMessage instances directly
+* Sending alternative content types
+### Email backends
+* Obtaining an instance of an email backend
+* SMTP backend
+#### Console backend
+Instead of sending out real emails the console backend just writes the emails that would be sent to the standard output
+#### File backend
+The file backend writes emails to a file
+#### In-memory backend
+The 'locmem' backend stores messages in a special attribute of the django.core.mail module
+#### Dummy backend
+As the name suggests the dummy backend does nothing with your messages
+### Defining a custom email backend
+If you need to change how emails are sent
+### Sending multiple emails
+* send_messages() method, send a list of EmailMessage objects 
+* use the open() and close() methods on the email backend to manually control the connection
+### Configuring email for development
+console email backend, file, dumb ,,,
+```
+python -m smtpd -n -c DebuggingServer localhost:1025
+```
