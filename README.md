@@ -1193,3 +1193,18 @@ console email backend, file, dumb ,,,
 ```
 python -m smtpd -n -c DebuggingServer localhost:1025
 ```
+
+# Internationalization and localization
+### Overview
+Django has full support for `translation of text`, `formatting of dates, times and numbers`, and `time zones`
+### Definitions
+**internationalization**, Preparing the software for localization. Usually done by developers
+**localization**, Writing the translations and local formats. Usually done by translators
+* locale name, a language specification of the form ll or a combined language and country specification of the form ll_CC
+* language code, Browsers send the names of the languages they accept in the Accept-Language HTTP header using this format
+* message file, contains all available translation strings, a .po file extension
+* translation string, A literal that can be translated
+* format file, A format file is a Python module that defines the data formats for a given locale
+
+## Translation
+
