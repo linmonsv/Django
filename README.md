@@ -1119,5 +1119,14 @@ does not allow cache keys longer than 250 characters or containing whitespace or
 2. override just the validate_key method
 ### Downstream caches
 ### Using Vary headers
+The Vary header defines which request headers a cache mechanism should take into account when building its cache key
+### Controlling cache: Using other headers
+The solution is to indicate a page’s cache should be “private.” To do this in Django, use the cache_control() view decorator
+patch_cache_control(), the manual way to modify the cache control header (offers both private and public entries)
+If you want to use headers to disable caching altogether, never_cache() 
+### Order of MIDDLEWARE
+If you use caching middleware, it’s important to put each half in the right place within the MIDDLEWARE setting
+
+
 
 
