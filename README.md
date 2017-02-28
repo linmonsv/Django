@@ -1144,3 +1144,19 @@ def my_view(request):
 ### Using the decorators with other HTTP methods
 ### Comparison with middleware conditional processing
 
+# Cryptographic signing
+### Protecting the SECRET_KEY
+using startproject, the settings.py file is generated automatically and gets a random SECRET_KEY value.
+### Using the low-level API
+django.core.signing module
+By default, the Signer class uses the SECRET_KEY setting to generate signatures. You can use a different secret by passing it to the Signer constructor
+* Using the salt argument
+Using salt in this way puts the different signatures into different namespaces
+Unlike your SECRET_KEY, your salt argument does not need to stay secret
+### Verifying timestamped values
+This allows you to confirm that a signed value was created within a specified period of time
+### Protecting complex data structures
+using the signing module’s dumps and loads functions
+
+
+
