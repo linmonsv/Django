@@ -1359,6 +1359,36 @@ how to migrate a project that was started before Django supported time zones
 ### Usage
 
 # Logging
+### A quick logging primer
+Django uses Python’s builtin logging module to perform system logging
+* Loggers
+A logger is the entry point into the logging system, log levels
+* Handlers
+The handler is the engine that determines what happens to each message in a logger
+`A logger can have multiple handlers`, and each handler can have a different log level
+* Filters
+A filter is used to provide additional control over which log records are passed from logger to handler
+Filters can be installed on loggers or on handlers; multiple filters can be used in a chain to perform multiple filtering actions
+* Formatters* 
+Formatters describe the exact format of that text
+### Using logging
+**Naming loggers**
+By convention, the logger name is usually __name__, the name of the python module that contains the logger. 
+This allows you to filter and handle logging calls on a per-module basis
+However, if you have some other way of organizing your logging messages, you can provide any dot-separated name to identify your logger
+The dotted paths of logger names define a hierarchy
+you can define a single set of handlers at the root of a logger tree, and capture all logging calls in the subtree of loggers
+**Making logging calls**
+### Configuring logging
+Python’s logging library provides several techniques
+Django uses the dictConfig format
+By default, the LOGGING setting is merged with Django’s default logging configuration using the following scheme
+**Examples**
+
+
+
+
+
 
 # Pagination
 
