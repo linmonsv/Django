@@ -1301,6 +1301,23 @@ Django makes the general assumption that the original strings in a translatable 
 You can choose another language, but you must be aware of certain limitations
 
 ## Format localization
+### Overview
+displaying dates, times and numbers 
+### Locale aware input in forms
+To enable a form field to localize input and output data simply use its localize argument
+### Controlling localization in templates
+You may also want to use localization in selected templates, rather than using localization everywhere
+### Template tags
+**localize**
+Enables or disables localization of template variables in the contained block
+### Template filters
+`a single value`
+### Creating custom format files
+a format files doesn’t exist for your locale ?
+### Limitations of the provided locale formats
+Some locales use context-sensitive formats for numbers, which Django’s localization system cannot handle automatically
+**Switzerland (German)**
+The Swiss number formatting depends on the type of number that is being formatted. For monetary values, a comma is used as the thousand separator and a decimal point for the decimal separator
 
 ## Time zones
 
