@@ -1127,6 +1127,20 @@ If you want to use headers to disable caching altogether, never_cache()
 ### Order of MIDDLEWARE
 If you use caching middleware, it’s important to put each half in the right place within the MIDDLEWARE setting
 
-
-
+# Conditional View Processing
+HTTP clients can send a number of headers to tell the server about copies of a resource that they have already seen
+to avoid sending all the data for something
+### The condition decorator
+more fine-grained control
+### Shortcuts for only computing one value
+* Use condition when testing both conditions
+```
+# Bad code. Don't do this!
+@etag(etag_func)
+@last_modified(last_modified_func)
+def my_view(request):
+    #...
+```
+### Using the decorators with other HTTP methods
+### Comparison with middleware conditional processing
 
