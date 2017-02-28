@@ -1207,4 +1207,102 @@ Django has full support for `translation of text`, `formatting of dates, times a
 * format file, A format file is a Python module that defines the data formats for a given locale
 
 ## Translation
+### Overview
+set USE_I18N = False in your settings file. Then Django will make some optimizations so as not to load the internationalization machinery
+### Internationalization: in Python code
+#### Standard translation
+from django.utils.translation import ugettext as _
+For some reasons, you should use named-string interpolation (e.g., %(day)s) instead of positional interpolation (e.g., %s or %d) whenever you have more than a single parameter. 
+If you used positional interpolation, translations wouldn’t be able to `reorder` placeholder text
+### Comments for translators
+### Marking strings as no-op
+to mark a string as a translation string without translating it.
+### Pluralization
+This function is useful when you need your Django application to be localizable to languages where the number and complexity of plural forms is greater than the two forms used in English
+### Contextual markers
+Sometimes words have several meanings, 
+To enable translators to translate these words correctly in different contexts
+### Lazy translation
+### Model verbose names values
+It is recommended to always provide explicit verbose_name and verbose_name_plural options
+### Model methods short_description attribute values
+provide translations to Django and the admin site with the short_description attribute
+### Working with lazy translation objects
+a unicode string
+Lazy translations and plural
+### Joining strings: string_concat()
+which creates a lazy object that concatenates its contents and converts them to strings only when the result is included in a string
+### Other uses of lazy in delayed translations
+For any other case where you would like to delay the translation, but have to pass the translatable string as argument to another function, you can wrap this function inside a lazy call yourself
+### Localized names of languages
+detailed information about languages
+### Internationalization: in template code
+To give your template access to these tags, put {% load i18n %} toward the top of your template
+**trans template tag**
+### blocktrans template tag
+### String literals passed to tags and filters
+### Comments for translators in templates
+the comment tag
+or with the {# ... #} 
+### Switching language in templates
+If you want to select a language within a template, you can use the language template tag
+### Other tags
+### Internationalization: in JavaScript code
+**The JavaScriptCatalog view**
+A view that produces a JavaScript code library with functions that mimic the gettext interface, plus an array of `translation` strings
+### Using the JavaScript translation catalog
+```javascript
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+```
+### The JSONCatalog view
+In order to use another client-side library to handle translations, you may want to take advantage of the JSONCatalog view. It’s similar to JavaScriptCatalog but returns a JSON response
+### Note on performance
+it’s a good candidate for caching
+Server-side caching will reduce CPU load. It’s easily implemented with the cache_page() decorator
+### Internationalization: in URL patterns
+* Adding the language prefix to the root of the URL patterns to make it possible for LocaleMiddleware to detect the language to activate from the requested URL.
+* Making URL patterns themselves translatable via the django.utils.translation.ugettext_lazy() function
+**Language prefix in URL patterns**
+This function can be used in a root URLconf and Django will automatically prepend the current active language code to all URL patterns defined within i18n_patterns()
+### Translating URL patterns
+URL patterns can also be marked translatable using the ugettext_lazy() function
+### Reversing in templates
+If localized URLs get reversed in templates they always use the current language
+### Localization: how to create language files
+Once the string literals of an application have been tagged for later translation, the translation themselves need to be written
+**Message files**
+Django comes with a tool, django-admin makemessages, that automates the creation and upkeep of these files
+The script runs over your project source tree or your application source tree and pulls out all strings marked for translation
+To reexamine all source code and templates for new translation strings and update all message files for all languages, run ,,,
+### Compiling message files
+After you create your message file – and each time you make changes to it – you’ll need to compile it into a more efficient form, for use by gettext
+### Troubleshooting: ugettext() incorrectly detects python-format in strings with percent signs
+To workaround this, you can escape percent signs by adding a second percent sign
+Or you can use no-python-format so that all percent signs are treated as literals
+### Creating message files from JavaScript source code
+The only difference is you need to explicitly specify what in gettext parlance is known as a domain in this case the djangojs domain, by providing a -d djangojs parameter
+### gettext on Windows
+### Customizing the makemessages command
+If you want to pass additional parameters to xgettext, you need to create a custom makemessages command and override its xgettext_options attribute
+### Miscellaneous
+**The set_language redirect view**
+### Explicitly setting the active language
+### Using translations outside views and templates
+### Language cookie
+### Implementation notes
+**Specialties of Django translation**
+* django or djangojs
+* Django doesn’t use xgettext alone. It uses Python wrappers around xgettext and msgfmt
+### How Django discovers language preference
+If you want to let each individual user specify which language they prefer, then you also need to use the LocaleMiddleware. LocaleMiddleware enables language selection based on data from the request
+### How Django discovers translations
+### Using a non-English base language
+Django makes the general assumption that the original strings in a translatable project are `written in English`
+You can choose another language, but you must be aware of certain limitations
+
+## Format localization
+
+## Time zones
+
+
 
