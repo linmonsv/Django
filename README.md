@@ -1320,6 +1320,40 @@ Some locales use context-sensitive formats for numbers, which Django’s localiz
 The Swiss number formatting depends on the type of number that is being formatted. For monetary values, a comma is used as the thousand separator and a decimal point for the decimal separator
 
 ## Time zones
-
-
-
+### Overview
+use UTC in the code and use local time only when interacting with end users
+Time zone support is disabled by default. To enable it, set USE_TZ = True in your settings file
+### Concepts
+**Naive and aware datetime objects**
+When time zone support is disabled, Django uses naive datetime objects in local time
+When time zone support is enabled (USE_TZ=True), Django uses time-zone-aware datetime objects
+### Interpretation of naive datetime objects
+The only datetime that’s often created in application code is the current time, and timezone.now() automatically does the right thing
+### Default time zone and current time zone
+You should set the current time zone to the end user’s actual time zone with activate(). Otherwise, the default time zone is used
+###　Selecting the current time zone
+there’s no equivalent of the Accept-Language HTTP header that Django could use to determine the user’s time zone automatically
+Django provides `time zone selection functions`
+### Time zone aware input in forms
+### Time zone aware output in templates
+**Template tags**
+* localtime, Enables or disables conversion of aware datetime objects to the current time zone in the contained block
+* timezone
+* get_current_timezone
+**Template filters**
+* localtime
+* utc
+* timezone
+### Migration guide
+how to migrate a project that was started before Django supported time zones
+#### Database
+* PostgreSQL
+* Other databases
+#### Code
+1. The first step is to add USE_TZ = True to your settings file and install pytz (if possible)
+2. So the second step is to refactor your code wherever you instantiate datetime objects to make them aware
+3. Finally, in order to help you locate code that needs upgrading, Django raises a warning when you attempt to save a naive datetime to the database
+### Fixtures
+### FAQ
+### Troubleshooting
+### Usage
