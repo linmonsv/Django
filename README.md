@@ -1421,6 +1421,28 @@ class Paginator(object_list, per_page, orphans=0, allow_empty_first_page=True)[s
 You usually won’t construct Page objects by hand – you’ll get them using Paginator.page().
 
 # Porting to Python 3
+This document is primarily targeted at authors of pluggable applications who want to **support both Python 2 and 3**
+### Porting tips
+**Unicode literals**
+**String handling**
+### __str__() and __unicode__() methods
+### dict and dict-like classes
+### HttpRequest and HttpResponse objects
+### Coding guidelines
+**Syntax requirements**
+* Unicode
+* Exceptions
+### Magic methods
+* Iterators
+* Boolean evaluation
+* Division
+### Writing compatible code with six
+String handling
+long
+xrange
+Moved modules
+PY2
+### Django customized version of six
 
 # Security in Django
 
