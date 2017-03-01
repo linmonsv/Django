@@ -1445,6 +1445,34 @@ PY2
 ### Django customized version of six
 
 # Security in Django
+### Cross site scripting (XSS) protection
+Cross site request forgery (CSRF) protection
+### Cross site request forgery (CSRF) protection
+CSRF attacks allow a malicious user to execute actions using the credentials of another user without that user’s knowledge or consent
+### SQL injection protection
+SQL injection is a type of attack where a malicious user is able to execute arbitrary SQL code on a database
+### Clickjacking protection
+Clickjacking is a type of attack where a malicious site wraps another site in a frame
+### SSL/HTTPS
+It is always better for security to deploy your site behind HTTPS
+### Host header validation
+Django uses the Host header provided by the client to construct URLs in certain cases
+### Session security
+Similar to the CSRF limitations requiring a site to be deployed such that untrusted users don’t have access to any subdomains
+### User-uploaded content
+* reasonable size
+* be sure that handlers like Apache’s mod_php, which would execute static files as code, are disabled
+* Django’s media upload handling poses some vulnerabilities when that media is served in ways that do not follow security best practices
+**mitigate these attacks**
+1. distinct top-level or second-level domain
+2. whitelist of allowable file extensions
+### Additional security topics
+* Make sure that your Python code is outside of the Web server’s root
+* Take care with any user uploaded files
+* Django does not throttle requests to authenticate users
+* Keep your SECRET_KEY a secret
+* It is a good idea to limit the accessibility of your caching system and database using a firewall
+* Take a look at the Open Web Application Security Project (OWASP) Top 10 list which identifies some common vulnerabilities in web applications
 
 # Performance and optimization
 
