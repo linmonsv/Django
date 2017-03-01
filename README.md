@@ -1384,11 +1384,31 @@ Python’s logging library provides several techniques
 Django uses the dictConfig format
 By default, the LOGGING setting is merged with Django’s default logging configuration using the following scheme
 **Examples**
-
-
-
-
-
+1. First, here’s a simple configuration which writes all logging from the django logger to a local file
+2. Second, here’s an example of how to make the logging system print Django’s logging to the console
+3. Finally, here’s an example of `a fairly complex logging setup`
+### Custom logging configuration
+The LOGGING_CONFIG setting defines the callable that will be used to configure Django’s loggers
+### Disabling logging configuration
+Setting LOGGING_CONFIG to None only means that the automatic configuration process is disabled, not logging itself
+### Django’s logging extensions
+**Django provides several built-in loggers**
+* django, catch-all
+* django.request, related to the handling of requests
+* ,,,,,,
+### Handlers
+one log handler in addition
+**AdminEmailHandler**
+This handler sends an email to the site admins for each log message it receives
+### Filters
+two log filters in addition
+**CallbackFilter**
+This filter accepts a callback function (which should accept a single argument, the record to be logged), 
+and calls it for each record that passes through the filter. 
+Handling of that record will not proceed if the callback returns False
+**RequireDebugFalse / RequireDebugTrue**
+This filter will only pass on records when settings.DEBUG is False / True
+### Django’s default logging configuration
 
 # Pagination
 
