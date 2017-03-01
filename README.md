@@ -1411,6 +1411,14 @@ This filter will only pass on records when settings.DEBUG is False / True
 ### Django’s default logging configuration
 
 # Pagination
+Django provides a few classes that help you manage paginated data – that is, data that’s split across several pages, with “Previous/Next” links
+### Using Paginator in a view
+### Paginator objects
+class Paginator(object_list, per_page, orphans=0, allow_empty_first_page=True)[source]
+**orphans**, If the last page would normally have a number of items less than or equal to orphans, then those items will be added to the previous page (which becomes the last page) instead of leaving the items on a page by themselves
+### InvalidPage exceptions
+### Page objects
+You usually won’t construct Page objects by hand – you’ll get them using Paginator.page().
 
 # Porting to Python 3
 
