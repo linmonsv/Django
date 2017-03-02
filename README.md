@@ -1475,6 +1475,43 @@ Similar to the CSRF limitations requiring a site to be deployed such that untrus
 * Take a look at the Open Web Application Security Project (OWASP) Top 10 list which identifies some common vulnerabilities in web applications
 
 # Performance and optimization
+### General approaches
+**What are you optimizing for**
+### Performance benchmarking
+It’s no good just guessing or assuming where the inefficiencies lie in your code
+**Django tools**
+`django-debug-toolbar` is a very handy tool that provides insights into what your code is doing and how much time it spends doing it
+**Third-party services**
+* Yahoo’s Yslow
+* Google PageSpeed* 
+### Get things right from the start
+Work at the appropriate level
+### Caching
+The caching framework
+cached_property
+### Understanding laziness
+Django also offers a keep_lazy() decorator
+### Databases
+**Database optimization**
+The database optimization documentation 
+**Other database-related tips**
+Enabling Persistent connections can speed up connections
+### HTTP performance
+* Middleware : ConditionalGetMiddleware, GZipMiddleware
+* Sessions : Using cached sessions
+* Static files : CachedStaticFilesStorage
+* _Minification_
+### Template performance
+* using {% block %} is faster than using {% include %}
+* heavily-fragmented templates, assembled from many small pieces, can affect performance
+**The cached template loader**
+### Using different versions of available software
+**Newer is often - but not always - better**
+### Alternatives to Django’s template language
+`Jinja2` can offer performance improvements, particularly when it comes to speed
+### Alternative software implementations
+`PyPy`
+C implementations of Python libraries
 
 # Serializing Django objects
 
