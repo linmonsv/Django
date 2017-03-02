@@ -1514,6 +1514,25 @@ Enabling Persistent connections can speed up connections
 C implementations of Python libraries
 
 # Serializing Django objects
+Django’s serialization framework provides a mechanism for “translating” Django models into other formats
+### Serializing data
+### Subset of fields
+### Inherited models
+need to serialize all of the base classes for the model
+### Deserializing data
+### Serialization formats
+**XML**
+**JSON**
+Be aware that not all Django output can be passed unmodified to json
+**YAML**
+### Natural keys
+get_by_natural_key()
+### Serialization of natural keys
+use_natural_foreign_keys=True or use_natural_primary_keys=True
+### Dependencies during serialization
+the data exists before it is referenced
+To control this ordering, you can define dependencies on your **natural**_key() methods. 
+You do this by **setting a dependencies** attribute on the natural_key() method itself
 
 # Django settings
 
