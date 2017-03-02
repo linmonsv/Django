@@ -1535,6 +1535,40 @@ To control this ordering, you can define dependencies on your **natural**_key() 
 You do this by **setting a dependencies** attribute on the natural_key() method itself
 
 # Django settings
+### The basics
+A settings file is just a Python module with module-level variables
+### Designating the settings
+The value of DJANGO_SETTINGS_MODULE should be in Python path syntax, e.g. mysite.settings
+**The django-admin utility**
+* set path
+* Use the --settings command-line argument to specify the settings manually:
+**On the server (mod_wsgi)**
+Do that with os.environ
+### Default settings
+* Load settings from global_settings.py (django/conf/global_settings.py)
+* Load settings from the specified settings file, overriding the global settings as necessary
+**Seeing which settings you’ve changed**
+The command python manage.py diffsettings displays differences
+### Using settings in Python code
+importing the object django.conf.settings
+### Altering settings at runtime
+### Security
+### Available settings
+### Creating your own settings
+* Setting names must be all uppercase.
+* Don’t reinvent an already-existing setting* 
+### Using settings without setting DJANGO_SETTINGS_MODULE
+django.conf.settings.configure(default_settings, **settings)
+**Custom default settings**
+settings.configure(default_settings=`myapp_defaults`, DEBUG=True)
+### Either configure() or DJANGO_SETTINGS_MODULE is required
+`Not both, and not neither`
+### Calling django.setup() is required for “standalone” Django usage
+If you’re using components of Django “standalone” – 
+for example, 
+writing a Python script which loads some Django templates and renders them, 
+or uses the ORM to fetch some data 
+– there’s one more step you’ll need in addition to configuring settings
 
 # Signals
 
