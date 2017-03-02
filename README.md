@@ -1596,3 +1596,8 @@ add extra checks, you can extend the implementation on the base class
 ### Writing tests
 
 # External packages
+Django ships with a variety of extra, optional tools that solve common problems
+Github, Documentation, PyPI
+### Localflavor
+### Comments
+### Formtools
