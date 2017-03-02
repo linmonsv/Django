@@ -1571,6 +1571,20 @@ or uses the ORM to fetch some data
 – there’s one more step you’ll need in addition to configuring settings
 
 # Signals
+like Qt
+### Listening to signals
+**Receiver functions**
+### Connecting receiver functions
+* connect 
+* receiver() decorator
+### Connecting to signals sent by specific senders
+### Preventing duplicate signals
+pass a unique identifier as the dispatch_uid argument to identify your receiver function
+### Defining and sending signals
+### Defining signals
+class Signal(providing_args=list)[source]
+### Sending signals
+### Disconnecting signals
 
 # System check framework
 
