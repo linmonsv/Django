@@ -1587,5 +1587,12 @@ class Signal(providing_args=list)[source]
 ### Disconnecting signals
 
 # System check framework
+a set of static checks for validating Django projects
+### Writing your own checks
+### Messages
+### Registering and labeling checks
+### Field, model, manager, and database checks
+add extra checks, you can extend the implementation on the base class
+### Writing tests
 
 # External packages
